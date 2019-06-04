@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import blogStyles from "./blog.module.scss"
+import Head from "../components/Head"
 
 export default function blog() {
   const contentful = useStaticQuery(graphql`
@@ -18,11 +19,11 @@ export default function blog() {
     }
   `)
   const posts = contentful.allContentfulBlogPost.edges
-  console.log(posts)
 
   return (
     <div>
       <Layout>
+        <Head title="Blog" />
         <h1>Hello from the Blog</h1>
         {posts.map((post, i) => {
           const { title, slug, publishedDate } = post.node

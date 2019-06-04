@@ -15,6 +15,7 @@ module.exports = {
     author: "Aaron Schmidt",
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-contentful`,
