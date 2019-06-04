@@ -12,7 +12,9 @@ export default function blog() {
               title
               date
             }
-
+            fields {
+              slug
+            }
             excerpt
           }
         }
@@ -29,11 +31,14 @@ export default function blog() {
         {posts.map((post, i) => {
           const { title, date } = post.node.frontmatter
           const { excerpt } = post.node
+          const { slug } = post.node.fields
 
           return (
             <div key={i}>
-              <h2>{title}</h2>
-              <p>Written on {date}</p>
+              <h2>
+                <Link to={`/blog/${slug}`}>{title}</Link>
+              </h2>
+              <p>{date}</p>
               <p>{excerpt}</p>
             </div>
           )
