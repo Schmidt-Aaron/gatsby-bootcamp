@@ -1,0 +1,26 @@
+$black: rgba(0, 0, 0, 0.8);
+.post {
+  border: 1px solid $black;
+  background-color: #fdf9ff;
+  padding: 0.75rem;
+  margin: 1.25rem 0;
+  &:hover {
+    background-color: #f4f4f4;
+  }
+  a {
+    color: $black;
+    display: block;
+    text-decoration: none;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    color: #777;
+    font-size: 0.8rem;
+  }
+}
+
+.date {
+  font-style: italic;
+}

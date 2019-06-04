@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import blogStyles from "./blog.module.scss"
 
 export default function blog() {
   const data = useStaticQuery(graphql`
@@ -34,13 +35,13 @@ export default function blog() {
           const { slug } = post.node.fields
 
           return (
-            <div key={i}>
-              <h2>
-                <Link to={`/blog/${slug}`}>{title}</Link>
-              </h2>
-              <p>{date}</p>
-              <p>{excerpt}</p>
-            </div>
+            <article key={i} className={blogStyles.post}>
+              <Link to={`/blog/${slug}`}>
+                <h2>{title}</h2>
+                <p className={blogStyles.date}>{date}</p>
+                <p>{excerpt}</p>
+              </Link>
+            </article>
           )
         })}
       </Layout>
